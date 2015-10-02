@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
-<Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+<Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JDialogFormInfo">
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="2"/>
   </Properties>
@@ -59,7 +59,7 @@
                       </Group>
                   </Group>
               </Group>
-              <EmptySpace pref="34" max="32767" attributes="0"/>
+              <EmptySpace pref="39" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -95,12 +95,12 @@
   <SubComponents>
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Add Method"/>
+        <Property name="text" type="java.lang.String" value="Add Metapod"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JCheckBox" name="voidCheck">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Void Method"/>
+        <Property name="text" type="java.lang.String" value="Volsch Metapod"/>
       </Properties>
       <Events>
         <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="voidCheckItemStateChanged"/>
@@ -129,7 +129,7 @@
     </Component>
     <Component class="javax.swing.JCheckBox" name="variablesCheck">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Variables"/>
+        <Property name="text" type="java.lang.String" value="Varis"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel3">

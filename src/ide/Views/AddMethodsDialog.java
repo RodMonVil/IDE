@@ -58,9 +58,9 @@ public class AddMethodsDialog extends javax.swing.JDialog {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        jLabel1.setText("Add Method");
+        jLabel1.setText("Add Metapod");
 
-        voidCheck.setText("Void Method");
+        voidCheck.setText("Volsch Metapod");
         voidCheck.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 voidCheckItemStateChanged(evt);
@@ -83,7 +83,7 @@ public class AddMethodsDialog extends javax.swing.JDialog {
             }
         });
 
-        variablesCheck.setText("Variables");
+        variablesCheck.setText("Varis");
 
         jLabel3.setText("Name");
 
@@ -120,7 +120,7 @@ public class AddMethodsDialog extends javax.swing.JDialog {
                         .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING)
                             .add(doneButton)
                             .add(addButton))))
-                .addContainerGap(34, Short.MAX_VALUE))
+                .addContainerGap(39, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)

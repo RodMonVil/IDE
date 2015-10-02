@@ -48,6 +48,7 @@ public class MainController {
             FileWriter fileWriter = new FileWriter(projectPath);
             fileWriter.write(main.getTextAreaText());
             fileWriter.close();
+            getProjects();
         } catch (IOException ex) {
             Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -102,9 +103,9 @@ public class MainController {
             xmlPath = xmlPath.trim();
             rs.close();
             setProjectPath(xmlPath);
-            File xmlFile = File_Reader.getFile(xmlPath);
-            Document document = xml.createDoc(xmlFile);
-            projectInformation = xml.analizeXML(document);
+//            File xmlFile = File_Reader.getFile(xmlPath);
+//            Document document = xml.createDoc(xmlFile);
+//            projectInformation = xml.analizeXML(document);
 //            System.out.println(projectInformation);
             main.setTextAreaText(File_Reader.getFileString(xmlPath));
             setActiveProject(true);
@@ -117,9 +118,11 @@ public class MainController {
     }
 
     public void showProjectInfo() {
+        XML xml = new XML();
+        Document document = xml.createDoc(main.getTextAreaText());
+        projectInformation = xml.analizeXML(document);
         TokenAnalizerDialog tokenDialog = new TokenAnalizerDialog(main, true);
         tokenDialog.setInformationText(projectInformation);
         tokenDialog.setVisible(true);
-//        JOptionPane.showMessageDialog(main, projectInformation, "Token Analizer", JOptionPane.INFORMATION_MESSAGE);
     }
 }

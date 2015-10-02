@@ -58,10 +58,11 @@ public class CreateFileController {
         mainController.setProjectInfo(xml.analizeXML(xmlDocument));
         mainController.setActiveProject(true);
         main.setTextAreaText(xmlString);
+        mainController.getProjects();
     }
     
     public void createVariables(Element element) {
-        Element variables = xml.createNode(xmlDocument, "Variables");
+        Element variables = xml.createNode(xmlDocument, "Varis");
         AddVariableController addVarController = new AddVariableController(mainFrame, this, xml, xmlDocument, variables);
         xml.appendNode(element, variables);
     }

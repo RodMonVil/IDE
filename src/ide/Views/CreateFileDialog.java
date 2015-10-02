@@ -66,7 +66,7 @@ public class CreateFileDialog extends JDialog {
         });
 
         jLabel5.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
-        jLabel5.setText("Project Name:");
+        jLabel5.setText("File Name:");
 
         projectNameText.setText("NewProject");
         projectNameText.setToolTipText("Class Name");
@@ -102,7 +102,7 @@ public class CreateFileDialog extends JDialog {
                     .add(org.jdesktop.layout.GroupLayout.LEADING, layout.createSequentialGroup()
                         .addContainerGap()
                         .add(cancelButton)))
-                .addContainerGap(18, Short.MAX_VALUE))
+                .addContainerGap(29, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)

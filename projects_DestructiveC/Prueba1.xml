@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Klasse name="NewClass">
+    <Variables>
+        <Variable name="repeat" type="boolsech" value="true">​</Variable>
+    </Variables>
+</Klasse>

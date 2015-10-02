@@ -13,7 +13,7 @@ public class AddMethodController {
     private XML xml;
     private Element parentNode;
     private Document document;
-    String[] variables = {"ganze", "schwimmer", "dopplet", "zeichenfolge", "saibling", "boolsech"};
+    String[] variables = {"intze", "floastag", "dopplet", "stringze", "chaig", "boolsech"};
 
     public AddMethodController(JFrame frame, CreateFileController controller, XML xml, Document document, Element parentNode) {
         this.controller = controller;
@@ -27,10 +27,10 @@ public class AddMethodController {
     }
 
     public void createMethod() {
-        Element method = xml.createNode(document, "Method");
+        Element method = xml.createNode(document, "Metapod");
         xml.setAttribute(method, "name", addMethDialog.getNameText());
         if (addMethDialog.getVoidCheck()) {
-            xml.setAttribute(method, "return", "void");
+            xml.setAttribute(method, "return", "volsch");
         } else {
             xml.setAttribute(method, "return", addMethDialog.getReturnText());
         }
