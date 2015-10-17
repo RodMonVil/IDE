@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Class name="Ascii">
     <Variables>
+ppp
         <Variable name="aaaa" type="int" value="qqqq">​</Variable>
         <Variable name="ddd" type="fff" value="ggg">​</Variable>
     </Variables>

@@ -1,7 +1,7 @@
 package ide.Controllers;
 
 import ide.Views.CreateFileDialog;
-import ide.DatabaseConnection;
+import ide.DatabaseManager;
 import ide.Main;
 import ide.XML;
 import javax.swing.JFrame;
@@ -17,17 +17,17 @@ public class CreateFileController {
 //    private AddMethodController addMethController;
     private CreateFileDialog fileDialog;
     private XML xml;
-    private DatabaseConnection connection;
+    private DatabaseManager connection;
     private String xmlString, projectName, className;
     private Document xmlDocument;
     private boolean globalVariablesCheck, methodsCheck;
     
-    public CreateFileController(JFrame frame, Main main, MainController mainController, DatabaseConnection connection) {
+    public CreateFileController(JFrame frame, Main main, MainController mainController, DatabaseManager connection) {
         this.mainFrame = frame;
         this.main = main;
         this.mainController = mainController;
         this.connection = connection;
-        this.connection.Connect();
+        this.connection.OpenConnection();
         fileDialog = new CreateFileDialog(frame, true, this);
         fileDialog.setLocationRelativeTo(null);
         fileDialog.setVisible(true);

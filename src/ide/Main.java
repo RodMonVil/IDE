@@ -67,6 +67,7 @@ public class Main extends javax.swing.JFrame {
         projectMenu = new javax.swing.JMenu();
         configurationOption = new javax.swing.JMenuItem();
         aboutOption = new javax.swing.JMenuItem();
+        testOption = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -266,6 +267,14 @@ public class Main extends javax.swing.JFrame {
         });
         projectMenu.add(aboutOption);
 
+        testOption.setText("Test");
+        testOption.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                testOptionActionPerformed(evt);
+            }
+        });
+        projectMenu.add(testOption);
+
         jMenuBar1.add(projectMenu);
 
         setJMenuBar(jMenuBar1);
@@ -376,6 +385,13 @@ public class Main extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(this, evt.getActionCommand(), "Not Implemented", JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_aboutOptionActionPerformed
 
+    private void testOptionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_testOptionActionPerformed
+        int posicion = textArea.getCaretPosition();
+        System.out.println(posicion);
+        String name = JOptionPane.showInputDialog(this, "Give Input Text:");
+        textArea.insert(name, posicion);
+    }//GEN-LAST:event_testOptionActionPerformed
+
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -412,6 +428,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JMenuItem semanticsValidateOption;
     private javax.swing.JMenuItem smartCodeOption;
     private javax.swing.JMenuItem syntaxValidateOption;
+    private javax.swing.JMenuItem testOption;
     private javax.swing.JTextArea textArea;
     private javax.swing.JMenuItem tokenAnalizerOption;
     private javax.swing.JMenuItem traductionOption;

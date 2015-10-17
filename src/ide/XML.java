@@ -147,7 +147,8 @@ public class XML {
     }
 
     public void getChildNodes(NodeList nodeList) {
-        for (int count = 0; count < nodeList.getLength(); count++) {
+        int listSize = nodeList.getLength();
+        for (int count = 0; count < listSize; count++) {
             information += "\n";
             Node activeNode = nodeList.item(count);
             // make sure it's element node.
@@ -159,7 +160,8 @@ public class XML {
                     information += "   Attributes:\n        ";
                     // get attributes names and values
                     NamedNodeMap nodeAttributes = activeNode.getAttributes();
-                    for (int i = 0; i < nodeAttributes.getLength(); i++) {
+                    int attributesLength = nodeAttributes.getLength();
+                    for (int i = 0; i < attributesLength; i++) {
                         Node attribute = nodeAttributes.item(i);
                         information += attribute.getNodeName() + " --> " + attribute.getNodeValue() + "\n        ";
                     }

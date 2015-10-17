@@ -16,7 +16,7 @@ public class MainController {
     private String projectPath, projectInformation;
     private CreateFileController createFileController;
     private boolean activeProject;
-    private DatabaseConnection connection = new DatabaseConnection("jdbc:mysql://localhost:3306/", "projects", "root", "root");
+    private DatabaseManager connection = new DatabaseManager("jdbc:mysql://localhost:3306/", "projects", "root", "root");
     private Map<Integer, String> projects = new HashMap<>();
     private Map<Integer, Integer> projectsOnList = new HashMap<>();
 
@@ -24,6 +24,14 @@ public class MainController {
         this.main = main;
         activeProject = false;
         getProjects();
+        
+        
+        Connection con = connection.getConnection();
+        ArrayList<Row> rowList = connection.read("xmlProjects", "id_xmlProject,xmlName,xmlPath");
+        for(Row row: rowList) {
+            System.out.println(row.toString());
+        }
+        System.out.println();
     }
     
     public void setActiveProject(boolean active) {
@@ -57,7 +65,7 @@ public class MainController {
     public void getProjects() {
         try {
             String query = "SELECT * FROM xmlProjects";
-            connection.Connect();
+            connection.OpenConnection();
             ResultSet rs = connection.Select(query);
             while (rs.next()) {
                 projects.put(rs.getInt("id_xmlProject"), rs.getString("xmlName"));
@@ -94,7 +102,7 @@ public class MainController {
         XML xml = new XML();
         try {
             String query = "SELECT xmlPath FROM xmlProjects WHERE id_xmlProject = " + key;
-            connection.Connect();
+            connection.OpenConnection();
             ResultSet rs = connection.Select(query);
             String xmlPath = "";
             while (rs.next()) {

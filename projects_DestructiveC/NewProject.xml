@@ -1,2 +1,16 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<Klasse name="NewClass"/>
+<?xml version="1.0" encoding="utf-8"?>
+<principal atributo1="valor">
+    <codigo bloque="1">
+    a = b + c;
+    y = 3 * a;
+    ## Comentario
+	
+    i = 0;
+        <ciclo condicion="i lt 100">
+            i = i + 1;
+        </ciclo>
+    </codigo>
+    <codigo bloque="2">
+    x = 3 + 2;
+    </codigo>	
+</principal>
