@@ -91,8 +91,9 @@ public class XML {
         document.appendChild(child);
     }
 
-    public String createXMLFile(Document document, String fileName) {
-        String filePath = "projects_DestructiveC/" + fileName + ".xml";
+    public String createXMLFile(Document document, String projectPath, String fileName) {
+//        String filePath = "projects_DestructiveC/" + fileName + ".xml";
+        String filePath = projectPath + "/"+ fileName + ".xml";
         try {
             TransformerFactory transformerFactory = TransformerFactory.newInstance();
             Transformer transformer = transformerFactory.newTransformer();

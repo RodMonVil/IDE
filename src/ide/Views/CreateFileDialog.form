@@ -45,7 +45,7 @@
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="classNameText" min="-2" pref="200" max="-2" attributes="0"/>
-                                      <Component id="projectNameText" min="-2" pref="200" max="-2" attributes="0"/>
+                                      <Component id="fileNameText" min="-2" pref="200" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
@@ -66,7 +66,7 @@
               <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="projectNameText" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="fileNameText" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -126,9 +126,9 @@
         <Property name="text" type="java.lang.String" value="File Name:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="projectNameText">
+    <Component class="javax.swing.JTextField" name="fileNameText">
       <Properties>
-        <Property name="text" type="java.lang.String" value="NewProject"/>
+        <Property name="text" type="java.lang.String" value="NewFile"/>
         <Property name="toolTipText" type="java.lang.String" value="Class Name"/>
       </Properties>
     </Component>

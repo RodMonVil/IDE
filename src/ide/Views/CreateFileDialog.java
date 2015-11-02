@@ -26,8 +26,8 @@ public class CreateFileDialog extends JDialog {
         return methodsCheck.isSelected();
     }
     
-    public String getProjectName() {
-        return projectNameText.getText();
+    public String getFileName() {
+        return fileNameText.getText();
     }
 
     @SuppressWarnings("unchecked")
@@ -39,7 +39,7 @@ public class CreateFileDialog extends JDialog {
         generateButton = new javax.swing.JButton();
         cancelButton = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
-        projectNameText = new javax.swing.JTextField();
+        fileNameText = new javax.swing.JTextField();
         globalVariablesCheck = new javax.swing.JCheckBox();
         methodsCheck = new javax.swing.JCheckBox();
 
@@ -68,8 +68,8 @@ public class CreateFileDialog extends JDialog {
         jLabel5.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
         jLabel5.setText("File Name:");
 
-        projectNameText.setText("NewProject");
-        projectNameText.setToolTipText("Class Name");
+        fileNameText.setText("NewFile");
+        fileNameText.setToolTipText("Class Name");
 
         globalVariablesCheck.setText("Global Variables");
 
@@ -98,7 +98,7 @@ public class CreateFileDialog extends JDialog {
                                     .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
                                     .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                                         .add(classNameText, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 200, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                                        .add(projectNameText, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 200, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))))))
+                                        .add(fileNameText, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 200, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))))))
                     .add(org.jdesktop.layout.GroupLayout.LEADING, layout.createSequentialGroup()
                         .addContainerGap()
                         .add(cancelButton)))
@@ -110,7 +110,7 @@ public class CreateFileDialog extends JDialog {
                 .add(21, 21, 21)
                 .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
                     .add(jLabel5)
-                    .add(projectNameText, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                    .add(fileNameText, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                 .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
                     .add(jLabel1)
@@ -141,11 +141,11 @@ public class CreateFileDialog extends JDialog {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton cancelButton;
     private javax.swing.JTextField classNameText;
+    private javax.swing.JTextField fileNameText;
     private javax.swing.JButton generateButton;
     private javax.swing.JCheckBox globalVariablesCheck;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JCheckBox methodsCheck;
-    private javax.swing.JTextField projectNameText;
     // End of variables declaration//GEN-END:variables
 }
