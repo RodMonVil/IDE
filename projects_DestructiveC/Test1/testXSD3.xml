@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<klasse name="NewClass">
+    <varis>
+        <vari name="aaa" type="intze" value="sss">​</vari>
+        <vari name="dsds" type="chaig" value="asas">​</vari>
+        <vari name="rrr" type="floastag" value="sss">​</vari>
+        <vari name="ddd" type="boolsech" value="ggg">​</vari>
+        <vari name="jjj" type="floastag" value="ggg">​</vari>
+        <vari name="hhh" type="stringze" value="nnn">​</vari>
+    </varis>
+    <metapod name="pollo" return="volsch">
+        <varis>
+            <vari name="qqq" type="intze" value="333">​</vari>
+            <vari name="r" type="chaig" value="c">​</vari>
+        </varis>
+    </metapod>
+    <metapod name="tytryrt" return="dopplet"/>
+    <metapod name="mmm" return="floastag">
+        <varis>
+            <vari name="www" type="dopplet" value="eee">​</vari>
+        </varis>
+    </metapod>
+</klasse>

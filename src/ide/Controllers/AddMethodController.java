@@ -27,7 +27,7 @@ public class AddMethodController {
     }
 
     public void createMethod() {
-        Element method = xml.createNode(document, "Metapod");
+        Element method = xml.createNode(document, "metapod");
         xml.setAttribute(method, "name", addMethDialog.getNameText());
         if (addMethDialog.getVoidCheck()) {
             xml.setAttribute(method, "return", "volsch");

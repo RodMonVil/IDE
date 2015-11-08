@@ -20,6 +20,7 @@
             <MenuItem class="javax.swing.JMenuItem" name="createFileOption">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Create New File"/>
+                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="createFileOptionActionPerformed"/>
@@ -99,6 +100,7 @@
                 <MenuItem class="javax.swing.JMenuItem" name="importFileOption">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Import File"/>
+                    <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="importFileOptionActionPerformed"/>
@@ -138,6 +140,7 @@
                 <MenuItem class="javax.swing.JMenuItem" name="syntaxValidateOption">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Syntax"/>
+                    <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="syntaxValidateOptionActionPerformed"/>
@@ -273,10 +276,10 @@
                   <Group type="102" attributes="0">
                       <Component id="moveUpButton" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
-                      <Component id="jScrollPane2" min="-2" pref="200" max="-2" attributes="0"/>
-                      <EmptySpace pref="316" max="32767" attributes="0"/>
+                      <Component id="jScrollPane2" max="32767" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                   </Group>
-                  <Component id="jScrollPane1" max="32767" attributes="0"/>
+                  <Component id="jScrollPane1" pref="549" max="32767" attributes="0"/>
               </Group>
           </Group>
       </Group>

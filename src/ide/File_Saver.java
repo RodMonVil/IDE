@@ -11,6 +11,9 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JFileChooser;
+import javax.swing.JFrame;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
 public class File_Saver {
 
@@ -25,7 +28,7 @@ public class File_Saver {
         }
         return false;
     }
-    
+
     public static boolean copyFile(String originalPath, String copyPath) {
         try {
             Path originalFile = new File(originalPath).toPath();
@@ -47,12 +50,31 @@ public class File_Saver {
             File directory = new File(backUpFolder);
             Path originalFile = new File(path + "/" + fileName + ".xml").toPath();
             Path newFile = new File(backUpFolder + "/" + fileName + "_" + dateFile + ".xml").toPath();
-            
+
             directory.mkdir();
             Files.copy(originalFile, newFile, REPLACE_EXISTING);
             return true;
         } catch (IOException ex) {
             Logger.getLogger(File_Saver.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return false;
+    }
+
+    public static boolean importFile(String projectPath, JFrame frame, int activeProject) {
+        JFileChooser fileChooser = new JFileChooser();
+        FileNameExtensionFilter filter = new FileNameExtensionFilter("XML Files", "xml");
+        fileChooser.setFileFilter(filter);
+        fileChooser.setCurrentDirectory(new File(System.getProperty("user.home")));
+        int result = fileChooser.showOpenDialog(frame);
+        if (result == JFileChooser.APPROVE_OPTION) {
+            File selectedFile = fileChooser.getSelectedFile();
+            String fileName = selectedFile.getName();
+            String originalPath = selectedFile.getAbsolutePath();
+            String copyPath = projectPath + "/" + fileName;
+            if(copyFile(originalPath, copyPath)) {
+                int id_file = DatabaseManager.create("xmlFiles", "xmlName, xmlPath, id_xmlProject", "'" + fileName + "', '" + copyPath + "', " + activeProject); //Falta validar si hubo problema
+                return true;
+            }
         }
         return false;
     }

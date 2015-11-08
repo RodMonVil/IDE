@@ -1,10 +1,7 @@
 package ide.Views;
 
 import ide.Controllers.MainController;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
+import ide.XMLValidator;
 import javax.swing.JList;
 import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
@@ -35,6 +32,12 @@ public class MainFrame extends javax.swing.JFrame {
         saveFileOption.setEnabled(enable);
         backupFileOption.setEnabled(enable);
         copyOption.setEnabled(enable);
+        syntaxValidateOption.setEnabled(enable);
+    }
+    
+    public void enableProjectOptions(boolean enable) {
+        importFileOption.setEnabled(enable);
+        createFileOption.setEnabled(enable);
     }
     
     public JTextArea getTextArea() {
@@ -135,6 +138,7 @@ public class MainFrame extends javax.swing.JFrame {
         fileMenu.add(createProjectOption);
 
         createFileOption.setText("Create New File");
+        createFileOption.setEnabled(false);
         createFileOption.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 createFileOptionActionPerformed(evt);
@@ -208,6 +212,7 @@ public class MainFrame extends javax.swing.JFrame {
         importMenu.add(importProjectOption);
 
         importFileOption.setText("Import File");
+        importFileOption.setEnabled(false);
         importFileOption.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 importFileOptionActionPerformed(evt);
@@ -241,6 +246,7 @@ public class MainFrame extends javax.swing.JFrame {
         validateMenu.setText("Validate");
 
         syntaxValidateOption.setText("Syntax");
+        syntaxValidateOption.setEnabled(false);
         syntaxValidateOption.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 syntaxValidateOptionActionPerformed(evt);
@@ -350,9 +356,9 @@ public class MainFrame extends javax.swing.JFrame {
                     .add(layout.createSequentialGroup()
                         .add(moveUpButton)
                         .add(4, 4, 4)
-                        .add(jScrollPane2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 200, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(316, Short.MAX_VALUE))
-                    .add(jScrollPane1)))
+                        .add(jScrollPane2)
+                        .addContainerGap())
+                    .add(jScrollPane1, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 549, Short.MAX_VALUE)))
         );
 
         pack();
@@ -403,7 +409,7 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_importProjectOptionActionPerformed
 
     private void importFileOptionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_importFileOptionActionPerformed
-        JOptionPane.showMessageDialog(this, evt.getActionCommand(), "Not Implemented", JOptionPane.INFORMATION_MESSAGE);
+        controller.importFile();
     }//GEN-LAST:event_importFileOptionActionPerformed
 
     private void semanticsValidateOptionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_semanticsValidateOptionActionPerformed
@@ -411,7 +417,7 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_semanticsValidateOptionActionPerformed
 
     private void syntaxValidateOptionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_syntaxValidateOptionActionPerformed
-        JOptionPane.showMessageDialog(this, evt.getActionCommand(), "Not Implemented", JOptionPane.INFORMATION_MESSAGE);
+        controller.validateSyntax();
     }//GEN-LAST:event_syntaxValidateOptionActionPerformed
 
     private void traductionOptionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_traductionOptionActionPerformed
@@ -443,6 +449,7 @@ public class MainFrame extends javax.swing.JFrame {
 //        System.out.println(posicion);
 //        String name = JOptionPane.showInputDialog(this, "Give Input Text:");
 //        textArea.insert(name, posicion);
+        
     }//GEN-LAST:event_testOptionActionPerformed
 
     private void moveUpButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_moveUpButtonActionPerformed

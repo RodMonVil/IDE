@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Klasse name="NewClass">
+    <Varis>
+        <Variable name="aaa" type="intze" value="sss">​</Variable>
+        <Variable name="sss" type="stringze" value="ddd">​</Variable>
+    </Varis>
+</Klasse>

@@ -10,7 +10,7 @@ public class MainController {
 
     private MainFrame mainFrame;
     private String rootDirectory = "projects_DestructiveC/";
-    private String projectPath, tokenInformation, fileName;
+    private String projectPath, tokenInformation, fileName, projectName;
     private CreateFileController createFileController;
     private CreateProjectController createProjectController;
     private int activeProject;
@@ -22,9 +22,9 @@ public class MainController {
         this.setKeyListener(mainFrame.getTextArea());
         mainFrame.setLocationRelativeTo(null);
         mainFrame.setVisible(true);
-        
+
         getProjects();
-        
+
 //        ArrayList<Row> rowList = DatabaseManager.read("xmlFiles", "*");
 //        for (Row row : rowList) {
 //            System.out.println(row.toString());
@@ -35,35 +35,65 @@ public class MainController {
     public void setActiveProject(int id_project) {
         activeProject = id_project;
     }
-    
+
     public String getRootDirectory() {
         return this.rootDirectory;
     }
-    
+
     public void setActiveFile(int id_xmlFile) {
         activeFile = id_xmlFile;
         mainFrame.enableFileOptions(true);
     }
     
+    public void setFileName(String fileName) {
+        this.fileName = fileName;
+    }
+
     public JFrame getFrame() {
         return this.mainFrame;
     }
 
     public void createFile(JFrame frame) {
-        createFileController = new CreateFileController(frame, mainFrame, this, activeProject, projectPath);
+        createFileController = new CreateFileController(frame, mainFrame, this);
+        mainFrame.setFileText(fileName);
     }
-    
+
     public void createProject(JFrame frame) {
         createProjectController = new CreateProjectController(frame, this);
+    }
+    
+    public String getProjectName() {
+        return this.projectName;
+    }
+    
+    public String getProjectPath() {
+        return this.projectPath;
+    }
+    
+    public int getProjectID() {
+        return this.activeProject;
     }
 
     public void setProjectPath(String path, String name) {
         mainFrame.setProjectText(name);
+        projectName = name;
         projectPath = path + name;
+        mainFrame.enableProjectOptions(true);
     }
 
     public void setProjectInfo(String information) {
         tokenInformation = information;
+    }
+
+    public void validateSyntax() {
+        String filePath = projectPath + "/" + fileName + ".xml";
+        String xsdPath = "src/ide/destructiveC.xsd";
+        XMLValidator xmlValidator = new XMLValidator(xsdPath, filePath);
+        if (xmlValidator.isValid()) {
+            JOptionPane.showMessageDialog(mainFrame, "XML is Valid", "Syntax Validator", JOptionPane.INFORMATION_MESSAGE);
+        } else {
+            JOptionPane.showMessageDialog(mainFrame, xmlValidator.getErrorMsg(), "Syntax Validator", JOptionPane.INFORMATION_MESSAGE);
+        }
     }
 
     public void saveFile() {
@@ -72,30 +102,40 @@ public class MainController {
             getFiles(activeProject);
         }
     }
-    
+
     public void backUpFile() {
-        if(File_Saver.backUpFile(projectPath, fileName)) {
+        if (File_Saver.backUpFile(projectPath, fileName)) {
             JOptionPane.showMessageDialog(mainFrame, "BackUp Successful", "BackUp", JOptionPane.INFORMATION_MESSAGE);
         } else {
             JOptionPane.showMessageDialog(mainFrame, "BackUp Error", "BackUp", JOptionPane.INFORMATION_MESSAGE);
         }
     }
-    
+
     public void copyFile() {
         CopyFileController copyController = new CopyFileController(mainFrame, this, projectPath, fileName);
         upToProjects();
+    }
+
+    public void importFile() {
+        if (File_Saver.importFile(projectPath, mainFrame, activeProject)) {
+            JOptionPane.showMessageDialog(mainFrame, "Import Successful", "Import File", JOptionPane.INFORMATION_MESSAGE);
+            getFiles(activeProject);
+        } else {
+            JOptionPane.showMessageDialog(mainFrame, "Import Error", "Import File", JOptionPane.INFORMATION_MESSAGE);
+        }
     }
 
     public void upToProjects() {
         mainFrame.getProjectList().setModel(FileLoader.getProjects());
         mainFrame.enableMoveUp(false);
         mainFrame.setProjectText("Projects");
+        mainFrame.enableProjectOptions(false);
     }
 
     public void getProjects() {
         mainFrame.getProjectList().setModel(FileLoader.getProjects());
     }
-    
+
     public void getFiles(int id_project) {
         mainFrame.getProjectList().setModel(FileLoader.getFiles(id_project));
         mainFrame.enableMoveUp(true);
@@ -174,7 +214,7 @@ public class MainController {
             setActiveFile(key);
         }
     }
-    
+
     public void loadFiles(int index) {
         int key = FileLoader.getDatabaseID(index);
         mainFrame.getProjectList().setModel(FileLoader.getFiles(key));

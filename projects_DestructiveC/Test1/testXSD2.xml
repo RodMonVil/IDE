@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<klasse name="qwerty">
+    <varis>
+        <vari name="a" type="intze" value="3">​</vari>
+        <vari name="s" type="stringze" value="t">​</vari>
+        <vari name="s" type="chaig" value="d">​</vari>
+        <vari name="tr" type="boolsech" value="0">​</vari>
+        <vari name="q" type="chaig" value="a">​</vari>
+        <vari name="reee" type="floastag" value="333">​</vari>
+    </varis>
+</klasse>

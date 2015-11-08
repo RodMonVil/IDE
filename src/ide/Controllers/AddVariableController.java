@@ -27,7 +27,7 @@ public class AddVariableController {
     }
 
     public void createVariable() {
-        Element variable = xml.createNode(document, "Variable");
+        Element variable = xml.createNode(document, "vari");
         xml.setAttribute(variable, "type", addVarDialog.getTypeText());
         xml.setAttribute(variable, "name", addVarDialog.getNameText());
         xml.setAttribute(variable, "value", addVarDialog.getValueText());
