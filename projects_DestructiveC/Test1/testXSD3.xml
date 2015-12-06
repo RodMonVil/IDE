@@ -17,7 +17,7 @@
     <metapod name="tytryrt" return="dopplet"/>
     <metapod name="mmm" return="floastag">
         <varis>
-            <vari name="www" type="dopplet" value="eee">​</vari>
+            <varis name="www" type="dopplet" value="eee">​</vari>
         </varis>
     </metapod>
 </klasse>

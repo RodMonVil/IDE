@@ -1,7 +1,7 @@
 package ide.Controllers;
 
 import ide.DatabaseManager;
-import ide.FileLoader;
+import ide.FileDBLoader;
 import ide.File_Saver;
 import ide.Views.CopyFileDialog;
 import java.awt.event.MouseAdapter;
@@ -43,7 +43,7 @@ public class CopyFileController {
     }
     
     public void getProjects() {
-        copyDialog.getProjectList().setModel(FileLoader.getProjects());
+        copyDialog.getProjectList().setModel(FileDBLoader.getProjects());
     }
     
     public void setMouseListener(JList list) {
@@ -53,7 +53,7 @@ public class CopyFileController {
                 JList list = (JList) evt.getSource();
                 if(!list.isSelectionEmpty()) {
                     int index = list.getSelectedIndex();
-                    id_project = FileLoader.getDatabaseID(index);
+                    id_project = FileDBLoader.getDatabaseID(index);
                     copyDialog.enableCopyButton(true);
                     
                 } else {

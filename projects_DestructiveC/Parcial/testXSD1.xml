@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<klasse name="NewClass">
+    <paketsen name="Parcial"/>
+    <importsen>
+        <includsen name="paq1"></includsen>
+        <includsen name="paq2"></includsen>
+        <includsen name="paq3"></includsen>
+    </importsen>
+    <varis>
+        <vari name="dsad" type="intze" value="">​</vari>
+        <vari name="rere" type="stringze" value="nein">​</vari>
+        <vari name="rere" type="boolsech" value="trulsch">​</vari>
+    </varis>
+    <metapod name="asddsa" return="volsch"/>
+    <metapod name="dsda" return="dopplet">
+        <varis>
+            <vari name="sdsdsa" type="intze" value="34">​</vari>
+            <vari name="rere" type="boolsech" value="falsch">​</vari>
+        </varis>
+    </metapod>
+</klasse>

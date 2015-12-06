@@ -2,7 +2,9 @@ package ide.Controllers;
 
 import ide.Views.*;
 import ide.*;
+import ide.ToJava.Project;
 import java.awt.event.*;
+import java.io.File;
 import javax.swing.*;
 import org.w3c.dom.Document;
 
@@ -126,18 +128,18 @@ public class MainController {
     }
 
     public void upToProjects() {
-        mainFrame.getProjectList().setModel(FileLoader.getProjects());
+        mainFrame.getProjectList().setModel(FileDBLoader.getProjects());
         mainFrame.enableMoveUp(false);
         mainFrame.setProjectText("Projects");
         mainFrame.enableProjectOptions(false);
     }
 
     public void getProjects() {
-        mainFrame.getProjectList().setModel(FileLoader.getProjects());
+        mainFrame.getProjectList().setModel(FileDBLoader.getProjects());
     }
 
     public void getFiles(int id_project) {
-        mainFrame.getProjectList().setModel(FileLoader.getFiles(id_project));
+        mainFrame.getProjectList().setModel(FileDBLoader.getFiles(id_project));
         mainFrame.enableMoveUp(true);
     }
 
@@ -205,9 +207,9 @@ public class MainController {
     }
 
     public void loadXML(int index) {
-        int key = FileLoader.getDatabaseID(index);
+        int key = FileDBLoader.getDatabaseID(index);
         String xmlPath = "";
-        xmlPath = FileLoader.getXMLPath(index);
+        xmlPath = FileDBLoader.getXMLPath(index);
         if (xmlPath != null) {
             mainFrame.setTextAreaText(File_Reader.getFileString(xmlPath));
             mainFrame.enableFileOptions(true);
@@ -216,8 +218,8 @@ public class MainController {
     }
 
     public void loadFiles(int index) {
-        int key = FileLoader.getDatabaseID(index);
-        mainFrame.getProjectList().setModel(FileLoader.getFiles(key));
+        int key = FileDBLoader.getDatabaseID(index);
+        mainFrame.getProjectList().setModel(FileDBLoader.getFiles(key));
         mainFrame.enableMoveUp(true);
         setActiveProject(key);
     }
@@ -229,5 +231,13 @@ public class MainController {
         TokenAnalizerDialog tokenDialog = new TokenAnalizerDialog(mainFrame, true);
         tokenDialog.setInformationText(tokenInformation);
         tokenDialog.setVisible(true);
+    }
+    
+    public void translateFile() {
+        XML xml = new XML();
+//        System.out.println(projectPath + "/" + fileName + ".xml");
+//        Project project = new Project(xml.createDoc(new File(projectPath + "/" + fileName + ".xml")));
+        Project project = new Project(new File(projectPath));
+//        System.out.println(project.getJava());
     }
 }

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<klasse name="NewClass">
+    <paketsen name="test1"/>
+    <varis>
+        <vari name="dsad" type="intze" value="">​</vari>
+        <vari name="rere" type="floastag" value="">​</vari>
+    </varis>
+    <metapod name="asddsa" return="volsch"/>
+    <metapod name="dsda" return="dopplet">
+        <varis>
+            <vari name="sdsdsa" type="intze" value="">​</vari>
+        </varis>
+    </metapod>
+</klasse>

@@ -1,8 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Klasse name="kol">
-    <Metapod name="mon" return="volsch">
-        <Varis>
-            <Variable name="mmm" type="floastag" value="nnn">​</Variable>
-        </Varis>
-    </Metapod>
-</Klasse>
+<klasse name="NewClass">
+    <paketsen name="prueba 3"/>
+</klasse>

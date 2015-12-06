@@ -2,8 +2,8 @@
     <xs:element name="klasse">
         <xs:complexType mixed="true">
             <xs:sequence>
-                <xs:element name="paketsen" type="paketsenType" maxOccurs="1" minOccurs="0"></xs:element>
-                <xs:element name="includsen" type="paketsenType" maxOccurs="unbounded" minOccurs="0"></xs:element>
+                <xs:element name="paketsen" type="paketsenType" maxOccurs="1" minOccurs="1"></xs:element>
+                <xs:element name="importsen" type="importsenType" maxOccurs="unbounded" minOccurs="0"></xs:element>
                 <xs:element name="varis" type="varisType" maxOccurs="1" minOccurs="0"></xs:element>
                 <xs:element name="startzen" type="startzenType" maxOccurs="1" minOccurs="0"></xs:element>
                 <xs:element name="metapod" maxOccurs="unbounded" minOccurs="0" type="metapodType"></xs:element>
@@ -58,5 +58,19 @@
     
     <xs:complexType name="paketsenType">
         <xs:attribute type="xs:string" name="name" use="required"/>
+    </xs:complexType>
+    
+    <xs:complexType name="importsenType">
+        <xs:sequence>
+            <xs:element name="includsen" maxOccurs="unbounded" minOccurs="1">
+                <xs:complexType>
+                    <xs:simpleContent>
+                        <xs:extension base="xs:string">
+                            <xs:attribute name="name" type="xs:string" use="required"></xs:attribute>
+                        </xs:extension>
+                    </xs:simpleContent>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
     </xs:complexType>
 </xs:schema>

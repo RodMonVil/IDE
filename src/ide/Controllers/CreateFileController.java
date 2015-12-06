@@ -2,9 +2,12 @@ package ide.Controllers;
 
 import ide.Views.CreateFileDialog;
 import ide.DatabaseManager;
+import ide.Row;
 import ide.Views.MainFrame;
 import ide.XML;
+import java.util.ArrayList;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
@@ -18,7 +21,7 @@ public class CreateFileController {
     private String xmlString, fileName, className, projectPath, projectName;
     private Document xmlDocument;
     private boolean globalVariablesCheck, methodsCheck;
-    private int id_project, id_file;
+    private int id_project, id_file = 0;
 
     public CreateFileController(JFrame frame, MainFrame main, MainController mainController) {
         this.mainFrame = frame;
@@ -37,6 +40,8 @@ public class CreateFileController {
 //        String query = "INSERT INTO xmlFiles (xmlName, xmlPath) values (?, ?)";
         className = fileDialog.getClassName();
         fileName = fileDialog.getFileName();
+        
+        
         globalVariablesCheck = fileDialog.getGlobalVariablesCheck();
         methodsCheck = fileDialog.getMethodsCheck();
         fileDialog.dispose();
@@ -60,7 +65,14 @@ public class CreateFileController {
         String xmlPath = xml.createXMLFile(xmlDocument, projectPath, fileName);
 //        connection.InsertXML(query, fileName, xmlPath);
 //        DatabaseManager.InsertXML(query, fileName, xmlPath);
-        id_file = DatabaseManager.create("xmlFiles", "xmlName, xmlPath, id_xmlProject", "'" + fileName + "', '" + xmlPath + "', " + id_project); //Falta validar si hubo problema
+        ArrayList<Row> file = DatabaseManager.read("xmlFiles", "*", "xmlName = '" + fileName + "' AND id_xmlProject = " + id_project);
+        if(file.size() > 0) {
+            id_file = Integer.parseInt(file.get(0).get("id_xmlFile"));
+            JOptionPane.showMessageDialog(mainFrame, "File already exists, opened instead", "Create File", JOptionPane.INFORMATION_MESSAGE);
+        } else {
+            id_file = DatabaseManager.create("xmlFiles", "xmlName, xmlPath, id_xmlProject", "'" + fileName + "', '" + xmlPath + "', " + id_project); //Falta validar si hubo problema
+        }
+        
 //        mainController.setProjectPath(xmlPath);
         mainController.setProjectInfo(xml.analizeXML(xmlDocument));
 //        mainController.setActiveProject(id_project);

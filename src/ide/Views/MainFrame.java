@@ -1,7 +1,6 @@
 package ide.Views;
 
 import ide.Controllers.MainController;
-import ide.XMLValidator;
 import javax.swing.JList;
 import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
@@ -95,7 +94,7 @@ public class MainFrame extends javax.swing.JFrame {
         validateMenu = new javax.swing.JMenu();
         syntaxValidateOption = new javax.swing.JMenuItem();
         semanticsValidateOption = new javax.swing.JMenuItem();
-        traductionOption = new javax.swing.JMenuItem();
+        translationOption = new javax.swing.JMenuItem();
         compileOption = new javax.swing.JMenuItem();
         refactorOption = new javax.swing.JMenuItem();
         smartCodeOption = new javax.swing.JMenuItem();
@@ -264,13 +263,13 @@ public class MainFrame extends javax.swing.JFrame {
 
         codeMenu.add(validateMenu);
 
-        traductionOption.setText("Traduction");
-        traductionOption.addActionListener(new java.awt.event.ActionListener() {
+        translationOption.setText("Translation");
+        translationOption.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                traductionOptionActionPerformed(evt);
+                translationOptionActionPerformed(evt);
             }
         });
-        codeMenu.add(traductionOption);
+        codeMenu.add(translationOption);
 
         compileOption.setText("Compile");
         compileOption.addActionListener(new java.awt.event.ActionListener() {
@@ -420,9 +419,9 @@ public class MainFrame extends javax.swing.JFrame {
         controller.validateSyntax();
     }//GEN-LAST:event_syntaxValidateOptionActionPerformed
 
-    private void traductionOptionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_traductionOptionActionPerformed
-        JOptionPane.showMessageDialog(this, evt.getActionCommand(), "Not Implemented", JOptionPane.INFORMATION_MESSAGE);
-    }//GEN-LAST:event_traductionOptionActionPerformed
+    private void translationOptionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_translationOptionActionPerformed
+        controller.translateFile();
+    }//GEN-LAST:event_translationOptionActionPerformed
 
     private void compileOptionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_compileOptionActionPerformed
         JOptionPane.showMessageDialog(this, evt.getActionCommand(), "Not Implemented", JOptionPane.INFORMATION_MESSAGE);
@@ -491,7 +490,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JMenuItem testOption;
     private javax.swing.JTextArea textArea;
     private javax.swing.JMenuItem tokenAnalizerOption;
-    private javax.swing.JMenuItem traductionOption;
+    private javax.swing.JMenuItem translationOption;
     private javax.swing.JMenu validateMenu;
     // End of variables declaration//GEN-END:variables
 }

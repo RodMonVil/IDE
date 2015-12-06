@@ -5,7 +5,7 @@ import java.util.HashMap;
 import java.util.Map;
 import javax.swing.DefaultListModel;
 
-public class FileLoader {
+public class FileDBLoader {
 
     private static Map<Integer, String> files = new HashMap<>();
     private static Map<Integer, Integer> filesOnList = new HashMap<>();

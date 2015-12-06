@@ -156,12 +156,12 @@
                 </MenuItem>
               </SubComponents>
             </Menu>
-            <MenuItem class="javax.swing.JMenuItem" name="traductionOption">
+            <MenuItem class="javax.swing.JMenuItem" name="translationOption">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Traduction"/>
+                <Property name="text" type="java.lang.String" value="Translation"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="traductionOptionActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="translationOptionActionPerformed"/>
               </Events>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="compileOption">
