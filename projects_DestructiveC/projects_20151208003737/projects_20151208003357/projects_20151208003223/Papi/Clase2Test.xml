@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<klasse name="Clase2Test">
+    <paketsen name="papi"/>
+    <startzen name="Clase2Test" parameters="">
+        <varis>
+            <vari name="var" type="stringze" value="its all over now">​</vari>
+            <vari name="x1" type="intze" value="3">​</vari>
+            <vari name="x2" type="intze" value="5">​</vari>
+        </varis>
+    <printzen value="var"></printzen>
+    <printzen value="x1 + x2"></printzen>
+    </startzen>
+</klasse>

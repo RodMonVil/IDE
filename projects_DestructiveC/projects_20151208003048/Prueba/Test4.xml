@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<klasse name="Test4">
+    <paketsen name="prueba"/>
+    <varis>
+        <vari name="var1" type="intze" value="1">​</vari>
+        <vari name="var2" type="boolsech" value="falsch">​</vari>
+    </varis>
+    <startzen name="Test4" parameters=""/>
+    <metapod name="met1" parameters="" return="volsch"/>
+    <metapod name="met2" parameters="" return="stringze"/>
+</klasse>

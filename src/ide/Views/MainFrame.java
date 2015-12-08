@@ -32,11 +32,15 @@ public class MainFrame extends javax.swing.JFrame {
         backupFileOption.setEnabled(enable);
         copyOption.setEnabled(enable);
         syntaxValidateOption.setEnabled(enable);
+        smartCodeMenu.setEnabled(enable);
     }
     
     public void enableProjectOptions(boolean enable) {
         importFileOption.setEnabled(enable);
         createFileOption.setEnabled(enable);
+        exportProjectOption.setEnabled(enable);
+        translationOption.setEnabled(enable);
+        compileOption.setEnabled(enable);
     }
     
     public JTextArea getTextArea() {
@@ -61,6 +65,10 @@ public class MainFrame extends javax.swing.JFrame {
     
     public void setFileText(String text) {
         fileNameText.setText(text);
+    }
+    
+    public void insertText(String text, int position) {
+        textArea.insert(text, position);
     }
 
     @SuppressWarnings("unchecked")
@@ -97,7 +105,11 @@ public class MainFrame extends javax.swing.JFrame {
         translationOption = new javax.swing.JMenuItem();
         compileOption = new javax.swing.JMenuItem();
         refactorOption = new javax.swing.JMenuItem();
-        smartCodeOption = new javax.swing.JMenuItem();
+        smartCodeMenu = new javax.swing.JMenu();
+        printOption = new javax.swing.JMenuItem();
+        variableOption = new javax.swing.JMenuItem();
+        importOption = new javax.swing.JMenuItem();
+        constructorOption = new javax.swing.JMenuItem();
         projectMenu = new javax.swing.JMenu();
         configurationOption = new javax.swing.JMenuItem();
         aboutOption = new javax.swing.JMenuItem();
@@ -193,6 +205,7 @@ public class MainFrame extends javax.swing.JFrame {
         fileMenu.add(backupMenu);
 
         exportProjectOption.setText("Export Project");
+        exportProjectOption.setEnabled(false);
         exportProjectOption.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 exportProjectOptionActionPerformed(evt);
@@ -264,6 +277,7 @@ public class MainFrame extends javax.swing.JFrame {
         codeMenu.add(validateMenu);
 
         translationOption.setText("Translation");
+        translationOption.setEnabled(false);
         translationOption.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 translationOptionActionPerformed(evt);
@@ -272,6 +286,7 @@ public class MainFrame extends javax.swing.JFrame {
         codeMenu.add(translationOption);
 
         compileOption.setText("Compile");
+        compileOption.setEnabled(false);
         compileOption.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 compileOptionActionPerformed(evt);
@@ -287,13 +302,42 @@ public class MainFrame extends javax.swing.JFrame {
         });
         codeMenu.add(refactorOption);
 
-        smartCodeOption.setText("Smart Code Generator");
-        smartCodeOption.addActionListener(new java.awt.event.ActionListener() {
+        smartCodeMenu.setText("Smart Code Generator");
+        smartCodeMenu.setEnabled(false);
+
+        printOption.setText("Print");
+        printOption.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                smartCodeOptionActionPerformed(evt);
+                printOptionActionPerformed(evt);
             }
         });
-        codeMenu.add(smartCodeOption);
+        smartCodeMenu.add(printOption);
+
+        variableOption.setText("Variable");
+        variableOption.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                variableOptionActionPerformed(evt);
+            }
+        });
+        smartCodeMenu.add(variableOption);
+
+        importOption.setText("Import");
+        importOption.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                importOptionActionPerformed(evt);
+            }
+        });
+        smartCodeMenu.add(importOption);
+
+        constructorOption.setText("Constructor");
+        constructorOption.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                constructorOptionActionPerformed(evt);
+            }
+        });
+        smartCodeMenu.add(constructorOption);
+
+        codeMenu.add(smartCodeMenu);
 
         jMenuBar1.add(codeMenu);
 
@@ -431,9 +475,9 @@ public class MainFrame extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(this, evt.getActionCommand(), "Not Implemented", JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_refactorOptionActionPerformed
 
-    private void smartCodeOptionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_smartCodeOptionActionPerformed
-        JOptionPane.showMessageDialog(this, evt.getActionCommand(), "Not Implemented", JOptionPane.INFORMATION_MESSAGE);
-    }//GEN-LAST:event_smartCodeOptionActionPerformed
+    private void printOptionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_printOptionActionPerformed
+        controller.insertText("Print", textArea.getCaretPosition());
+    }//GEN-LAST:event_printOptionActionPerformed
 
     private void configurationOptionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_configurationOptionActionPerformed
         JOptionPane.showMessageDialog(this, evt.getActionCommand(), "Not Implemented", JOptionPane.INFORMATION_MESSAGE);
@@ -455,6 +499,18 @@ public class MainFrame extends javax.swing.JFrame {
         controller.upToProjects();
     }//GEN-LAST:event_moveUpButtonActionPerformed
 
+    private void importOptionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_importOptionActionPerformed
+        controller.insertText("Import", textArea.getCaretPosition());
+    }//GEN-LAST:event_importOptionActionPerformed
+
+    private void constructorOptionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_constructorOptionActionPerformed
+        controller.insertText("Constructor", textArea.getCaretPosition());
+    }//GEN-LAST:event_constructorOptionActionPerformed
+
+    private void variableOptionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_variableOptionActionPerformed
+        controller.insertText("Variable", textArea.getCaretPosition());
+    }//GEN-LAST:event_variableOptionActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem aboutOption;
@@ -464,6 +520,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JMenu codeMenu;
     private javax.swing.JMenuItem compileOption;
     private javax.swing.JMenuItem configurationOption;
+    private javax.swing.JMenuItem constructorOption;
     private javax.swing.JMenuItem copyOption;
     private javax.swing.JMenuItem createFileOption;
     private javax.swing.JMenuItem createProjectOption;
@@ -473,24 +530,27 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JLabel fileNameText;
     private javax.swing.JMenuItem importFileOption;
     private javax.swing.JMenu importMenu;
+    private javax.swing.JMenuItem importOption;
     private javax.swing.JMenuItem importProjectOption;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JButton moveUpButton;
     private javax.swing.JMenuItem openProjectOption;
+    private javax.swing.JMenuItem printOption;
     private javax.swing.JList projectList;
     private javax.swing.JMenu projectMenu;
     private javax.swing.JLabel projectNameText;
     private javax.swing.JMenuItem refactorOption;
     private javax.swing.JMenuItem saveFileOption;
     private javax.swing.JMenuItem semanticsValidateOption;
-    private javax.swing.JMenuItem smartCodeOption;
+    private javax.swing.JMenu smartCodeMenu;
     private javax.swing.JMenuItem syntaxValidateOption;
     private javax.swing.JMenuItem testOption;
     private javax.swing.JTextArea textArea;
     private javax.swing.JMenuItem tokenAnalizerOption;
     private javax.swing.JMenuItem translationOption;
     private javax.swing.JMenu validateMenu;
+    private javax.swing.JMenuItem variableOption;
     // End of variables declaration//GEN-END:variables
 }

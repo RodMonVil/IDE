@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<klasse name="Project">
+    <paketsen name="prueba"/>
+    <varis>
+        <vari name="var1" type="intze" value="1">​</vari>
+        <vari name="var2" type="boolsech" value="trulsch">​</vari>
+    </varis>
+    <startzen name="Project" parameters="">
+        <varis>
+            <vari name="var3" type="stringze" value="Hola Mundo">​</vari>
+        </varis>
+        <printzen value="var3"></printzen>
+    </startzen>
+</klasse>

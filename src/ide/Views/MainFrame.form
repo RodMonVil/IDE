@@ -79,6 +79,7 @@
             <MenuItem class="javax.swing.JMenuItem" name="exportProjectOption">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Export Project"/>
+                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="exportProjectOptionActionPerformed"/>
@@ -159,6 +160,7 @@
             <MenuItem class="javax.swing.JMenuItem" name="translationOption">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Translation"/>
+                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="translationOptionActionPerformed"/>
@@ -167,6 +169,7 @@
             <MenuItem class="javax.swing.JMenuItem" name="compileOption">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Compile"/>
+                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="compileOptionActionPerformed"/>
@@ -180,14 +183,46 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="refactorOptionActionPerformed"/>
               </Events>
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="smartCodeOption">
+            <Menu class="javax.swing.JMenu" name="smartCodeMenu">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Smart Code Generator"/>
+                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="smartCodeOptionActionPerformed"/>
-              </Events>
-            </MenuItem>
+              <SubComponents>
+                <MenuItem class="javax.swing.JMenuItem" name="printOption">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Print"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="printOptionActionPerformed"/>
+                  </Events>
+                </MenuItem>
+                <MenuItem class="javax.swing.JMenuItem" name="variableOption">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Variable"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="variableOptionActionPerformed"/>
+                  </Events>
+                </MenuItem>
+                <MenuItem class="javax.swing.JMenuItem" name="importOption">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Import"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="importOptionActionPerformed"/>
+                  </Events>
+                </MenuItem>
+                <MenuItem class="javax.swing.JMenuItem" name="constructorOption">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Constructor"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="constructorOptionActionPerformed"/>
+                  </Events>
+                </MenuItem>
+              </SubComponents>
+            </Menu>
           </SubComponents>
         </Menu>
         <Menu class="javax.swing.JMenu" name="projectMenu">

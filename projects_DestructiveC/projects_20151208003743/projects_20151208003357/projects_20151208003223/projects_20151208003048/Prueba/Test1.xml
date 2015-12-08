@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<klasse name="Test1">
+    <paketsen name="prueba"/>
+    <varis>
+        <vari name="var1" type="intze" value="1">​</vari>
+        <vari name="var2" type="dopplet" value="23">​</vari>
+    </varis>
+    <startzen name="Test1" parameters=""/>
+</klasse>

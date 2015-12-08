@@ -21,7 +21,7 @@ public class MainController {
     public MainController() {
         mainFrame = new MainFrame(this);
         this.setMouseListener(mainFrame.getProjectList());
-        this.setKeyListener(mainFrame.getTextArea());
+//        this.setKeyListener(mainFrame.getTextArea());
         mainFrame.setLocationRelativeTo(null);
         mainFrame.setVisible(true);
 
@@ -47,7 +47,7 @@ public class MainController {
         activeFile = id_xmlFile;
         mainFrame.enableFileOptions(true);
     }
-    
+
     public void setFileName(String fileName) {
         this.fileName = fileName;
     }
@@ -64,15 +64,15 @@ public class MainController {
     public void createProject(JFrame frame) {
         createProjectController = new CreateProjectController(frame, this);
     }
-    
+
     public String getProjectName() {
         return this.projectName;
     }
-    
+
     public String getProjectPath() {
         return this.projectPath;
     }
-    
+
     public int getProjectID() {
         return this.activeProject;
     }
@@ -113,7 +113,7 @@ public class MainController {
             JOptionPane.showMessageDialog(mainFrame, "BackUp Error", "BackUp", JOptionPane.INFORMATION_MESSAGE);
         }
     }
-    
+
     public void backUpProjects() {
         ThreadExecuter thread = new ThreadExecuter(rootDirectory);
         thread.start();
@@ -123,10 +123,11 @@ public class MainController {
         CopyFileController copyController = new CopyFileController(mainFrame, this, projectPath, fileName);
         upToProjects();
     }
-    
+
     public void exportProject() {
         Project project = new Project();
         project.exportProject(new File(projectPath));
+        JOptionPane.showMessageDialog(mainFrame, "Project Exported to JAR", "Export", JOptionPane.INFORMATION_MESSAGE);
     }
 
     public void importFile() {
@@ -136,6 +137,25 @@ public class MainController {
         } else {
             JOptionPane.showMessageDialog(mainFrame, "Import Error", "Import File", JOptionPane.INFORMATION_MESSAGE);
         }
+    }
+
+    public void insertText(String option, int position) {
+        String text = "";
+        switch (option) {
+            case "Print":
+                text = "<printzen value=\"\"></printzen>";
+                break;
+            case "Variable":
+                text = "<vari name=\"\" type=\"\" value=\"\">​</vari>";
+                break;
+            case "Import":
+                text = "<includsen name=\"\"></includsen>";
+                break;
+            case "Constructor":
+                text = "<startzen name=\"\" parameters=\"\">\n\n\t</startzen>";
+                break;
+        }
+        mainFrame.insertText(text, position);
     }
 
     public void upToProjects() {
@@ -243,19 +263,19 @@ public class MainController {
         tokenDialog.setInformationText(tokenInformation);
         tokenDialog.setVisible(true);
     }
-    
+
     public void translateProject() {
-//        XML xml = new XML();
-//        System.out.println(projectPath + "/" + fileName + ".xml");
-//        Project project = new Project(xml.createDoc(new File(projectPath + "/" + fileName + ".xml")));
         Project project = new Project();
         project.createJavaFiles(new File(projectPath));
-//        System.out.println(project.getJava());
+        JOptionPane.showMessageDialog(mainFrame, "Translation Complete", "Translate", JOptionPane.INFORMATION_MESSAGE);
     }
-    
+
     public void compileProject() {
         Project project = new Project();
         String result = project.createClassFiles(new File(projectPath));
-        System.out.println(result);
+        if(result.isEmpty()) {
+            result = "Compiled Succesfully";
+        }
+        JOptionPane.showMessageDialog(mainFrame, result, "Compile", JOptionPane.INFORMATION_MESSAGE);
     }
 }

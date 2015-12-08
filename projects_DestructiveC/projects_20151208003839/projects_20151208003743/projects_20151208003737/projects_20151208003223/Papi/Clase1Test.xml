@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<klasse name="Clase1Test">
+    <paketsen name="papi"/>
+<varis>
+            <vari name="var" type="stringze" value="Deal with it">​</vari>
+        </varis>
+    <startzen name="Clase1Test" parameters="">
+        <printzen value="var"></printzen>
+    </startzen>
+</klasse>
