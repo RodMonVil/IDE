@@ -18,7 +18,7 @@ public class CreateFileController {
     private MainController mainController;
     private CreateFileDialog fileDialog;
     private XML xml;
-    private String xmlString, fileName, className, projectPath, projectName;
+    private String xmlString, className, projectPath, projectName;
     private Document xmlDocument;
     private boolean globalVariablesCheck, methodsCheck;
     private int id_project, id_file = 0;
@@ -38,9 +38,7 @@ public class CreateFileController {
 
     public void createFile() {
 //        String query = "INSERT INTO xmlFiles (xmlName, xmlPath) values (?, ?)";
-        className = fileDialog.getClassName();
-        fileName = fileDialog.getFileName();
-        
+        className = fileDialog.getClassName();        
         
         globalVariablesCheck = fileDialog.getGlobalVariablesCheck();
         methodsCheck = fileDialog.getMethodsCheck();
@@ -48,36 +46,38 @@ public class CreateFileController {
         xml = new XML();
         xmlDocument = xml.createDoc();
         
-        Element packageElement = xml.createNode(xmlDocument, "paketsen");
-        xml.setAttribute(packageElement, "name", projectName.toLowerCase());
-        
         Element classElement = xml.createNode(xmlDocument, "klasse");
         xml.setAttribute(classElement, "name", className);
+        
+        Element packageElement = xml.createNode(xmlDocument, "paketsen");
+        xml.setAttribute(packageElement, "name", projectName.toLowerCase());
+        xml.appendNode(classElement, packageElement);
+        
         if (globalVariablesCheck) {
             createVariables(classElement);
         }
         if (methodsCheck) {
             createMethods(classElement);
         }
-        xml.appendNode(classElement, packageElement);
+        
         xml.appendNode(xmlDocument, classElement);
         xmlString = xml.createXMLString(xmlDocument);
-        String xmlPath = xml.createXMLFile(xmlDocument, projectPath, fileName);
+        String xmlPath = xml.createXMLFile(xmlDocument, projectPath, className);
 //        connection.InsertXML(query, fileName, xmlPath);
 //        DatabaseManager.InsertXML(query, fileName, xmlPath);
-        ArrayList<Row> file = DatabaseManager.read("xmlFiles", "*", "xmlName = '" + fileName + "' AND id_xmlProject = " + id_project);
+        ArrayList<Row> file = DatabaseManager.read("xmlFiles", "*", "xmlName = '" + className + "' AND id_xmlProject = " + id_project);
         if(file.size() > 0) {
             id_file = Integer.parseInt(file.get(0).get("id_xmlFile"));
             JOptionPane.showMessageDialog(mainFrame, "File already exists, opened instead", "Create File", JOptionPane.INFORMATION_MESSAGE);
         } else {
-            id_file = DatabaseManager.create("xmlFiles", "xmlName, xmlPath, id_xmlProject", "'" + fileName + "', '" + xmlPath + "', " + id_project); //Falta validar si hubo problema
+            id_file = DatabaseManager.create("xmlFiles", "xmlName, xmlPath, id_xmlProject", "'" + className + "', '" + xmlPath + "', " + id_project); //Falta validar si hubo problema
         }
         
 //        mainController.setProjectPath(xmlPath);
         mainController.setProjectInfo(xml.analizeXML(xmlDocument));
 //        mainController.setActiveProject(id_project);
         mainController.setActiveFile(id_file);
-        mainController.setFileName(fileName);
+        mainController.setFileName(className);
         main.setTextAreaText(xmlString);
         mainController.getFiles(id_project);
     }

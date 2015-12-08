@@ -6,9 +6,9 @@ public class Packetsen {
     
     String name;
     
-    public Packetsen(String name) {
-        this.name = name;
-    }
+//    public Packetsen(String name) {
+//        this.name = name;
+//    }
     
     public Packetsen(Node node) {
         this.name = node.getAttributes().item(0).getNodeValue();

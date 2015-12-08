@@ -26,9 +26,9 @@ public class CreateFileDialog extends JDialog {
         return methodsCheck.isSelected();
     }
     
-    public String getFileName() {
-        return fileNameText.getText();
-    }
+//    public String getFileName() {
+//        return fileNameText.getText();
+//    }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -38,8 +38,6 @@ public class CreateFileDialog extends JDialog {
         classNameText = new javax.swing.JTextField();
         generateButton = new javax.swing.JButton();
         cancelButton = new javax.swing.JButton();
-        jLabel5 = new javax.swing.JLabel();
-        fileNameText = new javax.swing.JTextField();
         globalVariablesCheck = new javax.swing.JCheckBox();
         methodsCheck = new javax.swing.JCheckBox();
 
@@ -65,12 +63,6 @@ public class CreateFileDialog extends JDialog {
             }
         });
 
-        jLabel5.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
-        jLabel5.setText("File Name:");
-
-        fileNameText.setText("NewFile");
-        fileNameText.setToolTipText("Class Name");
-
         globalVariablesCheck.setText("Global Variables");
 
         methodsCheck.setText("Methods");
@@ -92,13 +84,9 @@ public class CreateFileDialog extends JDialog {
                             .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING)
                                 .add(generateButton)
                                 .add(layout.createSequentialGroup()
-                                    .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING)
-                                        .add(jLabel5)
-                                        .add(jLabel1))
+                                    .add(jLabel1)
                                     .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
-                                    .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                                        .add(classNameText, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 200, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                                        .add(fileNameText, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 200, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))))))
+                                    .add(classNameText, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 200, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))))
                     .add(org.jdesktop.layout.GroupLayout.LEADING, layout.createSequentialGroup()
                         .addContainerGap()
                         .add(cancelButton)))
@@ -107,11 +95,7 @@ public class CreateFileDialog extends JDialog {
         layout.setVerticalGroup(
             layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
             .add(layout.createSequentialGroup()
-                .add(21, 21, 21)
-                .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                    .add(jLabel5)
-                    .add(fileNameText, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                .addContainerGap()
                 .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
                     .add(jLabel1)
                     .add(classNameText, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
@@ -141,11 +125,9 @@ public class CreateFileDialog extends JDialog {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton cancelButton;
     private javax.swing.JTextField classNameText;
-    private javax.swing.JTextField fileNameText;
     private javax.swing.JButton generateButton;
     private javax.swing.JCheckBox globalVariablesCheck;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JCheckBox methodsCheck;
     // End of variables declaration//GEN-END:variables
 }

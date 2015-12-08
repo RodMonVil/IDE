@@ -27,17 +27,25 @@ public class AddMethodController {
     }
 
     public void createMethod() {
-        Element method = xml.createNode(document, "metapod");
-        xml.setAttribute(method, "name", addMethDialog.getNameText());
-        if (addMethDialog.getVoidCheck()) {
-            xml.setAttribute(method, "return", "volsch");
+        if (addMethDialog.getConstructorCheck()) {
+            Element constructor = xml.createNode(document, "startzen");
+            xml.setAttribute(constructor, "name", parentNode.getAttribute("name"));
+            xml.setAttribute(constructor, "parameters", "");
+            xml.appendNode(parentNode, constructor);
         } else {
-            xml.setAttribute(method, "return", addMethDialog.getReturnText());
+            Element method = xml.createNode(document, "metapod");
+            xml.setAttribute(method, "name", addMethDialog.getNameText());
+            if (addMethDialog.getVoidCheck()) {
+                xml.setAttribute(method, "return", "volsch");
+            } else {
+                xml.setAttribute(method, "return", addMethDialog.getReturnText());
+            }
+            if (addMethDialog.getVariablesCheck()) {
+                controller.createVariables(method);
+            }
+            xml.setAttribute(method, "parameters", "");
+            xml.appendNode(parentNode, method);
         }
-        if (addMethDialog.getVariablesCheck()) {
-            controller.createVariables(method);
-        }
-        xml.appendNode(parentNode, method);
     }
 
     public void done() {

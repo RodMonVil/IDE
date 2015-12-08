@@ -23,6 +23,10 @@ public class AddMethodsDialog extends javax.swing.JDialog {
         return nameText.getText();
     }
     
+    public boolean getConstructorCheck() {
+        return constructorCheck.isSelected();
+    }
+    
     public boolean getVoidCheck() {
         return voidCheck.isSelected();
     }
@@ -40,6 +44,7 @@ public class AddMethodsDialog extends javax.swing.JDialog {
         voidCheck.setSelected(false);
         variablesCheck.setSelected(false);
         returnComboBox.setSelectedIndex(0);
+        constructorCheck.setSelected(false);
     }
 
     @SuppressWarnings("unchecked")
@@ -55,6 +60,7 @@ public class AddMethodsDialog extends javax.swing.JDialog {
         jLabel3 = new javax.swing.JLabel();
         nameText = new javax.swing.JTextField();
         returnComboBox = new javax.swing.JComboBox();
+        constructorCheck = new javax.swing.JCheckBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -89,6 +95,13 @@ public class AddMethodsDialog extends javax.swing.JDialog {
 
         returnComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
+        constructorCheck.setText("Startzen");
+        constructorCheck.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                constructorCheckItemStateChanged(evt);
+            }
+        });
+
         org.jdesktop.layout.GroupLayout layout = new org.jdesktop.layout.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -102,9 +115,14 @@ public class AddMethodsDialog extends javax.swing.JDialog {
                                 .add(jLabel1))
                             .add(org.jdesktop.layout.GroupLayout.TRAILING, layout.createSequentialGroup()
                                 .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .add(jLabel3)
-                                .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
-                                .add(nameText, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 110, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))
+                                .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                                    .add(org.jdesktop.layout.GroupLayout.TRAILING, layout.createSequentialGroup()
+                                        .add(jLabel3)
+                                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
+                                        .add(nameText, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 110, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                                    .add(org.jdesktop.layout.GroupLayout.TRAILING, layout.createSequentialGroup()
+                                        .add(constructorCheck)
+                                        .add(57, 57, 57)))))
                         .add(org.jdesktop.layout.GroupLayout.TRAILING, layout.createSequentialGroup()
                             .addContainerGap()
                             .add(jLabel2)
@@ -120,7 +138,7 @@ public class AddMethodsDialog extends javax.swing.JDialog {
                         .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING)
                             .add(doneButton)
                             .add(addButton))))
-                .addContainerGap(39, Short.MAX_VALUE))
+                .addContainerGap(36, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
@@ -132,10 +150,12 @@ public class AddMethodsDialog extends javax.swing.JDialog {
                     .add(jLabel3)
                     .add(nameText, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                .add(constructorCheck)
+                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, 12, Short.MAX_VALUE)
                 .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
                     .add(jLabel2)
                     .add(returnComboBox, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                .add(13, 13, 13)
+                .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
                 .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
                     .add(voidCheck)
                     .add(variablesCheck))
@@ -143,7 +163,7 @@ public class AddMethodsDialog extends javax.swing.JDialog {
                 .add(addButton)
                 .add(18, 18, 18)
                 .add(doneButton)
-                .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         pack();
@@ -166,6 +186,20 @@ public class AddMethodsDialog extends javax.swing.JDialog {
         }
     }//GEN-LAST:event_voidCheckItemStateChanged
 
+    private void constructorCheckItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_constructorCheckItemStateChanged
+        if(evt.getStateChange() == 1) {
+            returnComboBox.setEnabled(false);
+            voidCheck.setEnabled(false);
+            variablesCheck.setEnabled(false);
+            nameText.setEnabled(false);
+        } else {
+            returnComboBox.setEnabled(true);
+            voidCheck.setEnabled(true);
+            variablesCheck.setEnabled(true);
+            nameText.setEnabled(true);
+        }
+    }//GEN-LAST:event_constructorCheckItemStateChanged
+
 //    public static void main(String args[]) {
 //        java.awt.EventQueue.invokeLater(new Runnable() {
 //            public void run() {
@@ -176,6 +210,7 @@ public class AddMethodsDialog extends javax.swing.JDialog {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addButton;
+    private javax.swing.JCheckBox constructorCheck;
     private javax.swing.JButton doneButton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

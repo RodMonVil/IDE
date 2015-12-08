@@ -14,6 +14,7 @@ import java.util.logging.Logger;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.filechooser.FileNameExtensionFilter;
+import org.apache.commons.io.FileUtils;
 
 public class File_Saver {
 
@@ -34,6 +35,20 @@ public class File_Saver {
             Path originalFile = new File(originalPath).toPath();
             Path newFile = new File(copyPath).toPath();
             Files.copy(originalFile, newFile, COPY_ATTRIBUTES);
+            return true;
+        } catch (IOException ex) {
+            Logger.getLogger(File_Saver.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return false;
+    }
+    
+    public static boolean copyFolder(String originalPath) {
+        try {
+            DateFormat dateFormat = new SimpleDateFormat("yyyyMMddHHmmss");
+            Date date = new Date();
+            String dateFile = dateFormat.format(date);
+            String destinationPath = originalPath + "/projects_" + dateFile;
+            FileUtils.copyDirectory(new File(originalPath), new File(destinationPath));
             return true;
         } catch (IOException ex) {
             Logger.getLogger(File_Saver.class.getName()).log(Level.SEVERE, null, ex);

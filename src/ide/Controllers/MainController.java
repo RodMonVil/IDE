@@ -26,6 +26,7 @@ public class MainController {
         mainFrame.setVisible(true);
 
         getProjects();
+        backUpProjects();
 
 //        ArrayList<Row> rowList = DatabaseManager.read("xmlFiles", "*");
 //        for (Row row : rowList) {
@@ -112,10 +113,20 @@ public class MainController {
             JOptionPane.showMessageDialog(mainFrame, "BackUp Error", "BackUp", JOptionPane.INFORMATION_MESSAGE);
         }
     }
+    
+    public void backUpProjects() {
+        ThreadExecuter thread = new ThreadExecuter(rootDirectory);
+        thread.start();
+    }
 
     public void copyFile() {
         CopyFileController copyController = new CopyFileController(mainFrame, this, projectPath, fileName);
         upToProjects();
+    }
+    
+    public void exportProject() {
+        Project project = new Project();
+        project.exportProject(new File(projectPath));
     }
 
     public void importFile() {
@@ -233,11 +244,18 @@ public class MainController {
         tokenDialog.setVisible(true);
     }
     
-    public void translateFile() {
-        XML xml = new XML();
+    public void translateProject() {
+//        XML xml = new XML();
 //        System.out.println(projectPath + "/" + fileName + ".xml");
 //        Project project = new Project(xml.createDoc(new File(projectPath + "/" + fileName + ".xml")));
-        Project project = new Project(new File(projectPath));
+        Project project = new Project();
+        project.createJavaFiles(new File(projectPath));
 //        System.out.println(project.getJava());
+    }
+    
+    public void compileProject() {
+        Project project = new Project();
+        String result = project.createClassFiles(new File(projectPath));
+        System.out.println(result);
     }
 }

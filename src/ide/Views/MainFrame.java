@@ -82,7 +82,7 @@ public class MainFrame extends javax.swing.JFrame {
         saveFileOption = new javax.swing.JMenuItem();
         copyOption = new javax.swing.JMenuItem();
         backupMenu = new javax.swing.JMenu();
-        backupProjectOption = new javax.swing.JMenuItem();
+        backupProjectsOption = new javax.swing.JMenuItem();
         backupFileOption = new javax.swing.JMenuItem();
         exportProjectOption = new javax.swing.JMenuItem();
         importMenu = new javax.swing.JMenu();
@@ -173,13 +173,13 @@ public class MainFrame extends javax.swing.JFrame {
 
         backupMenu.setText("Backup");
 
-        backupProjectOption.setText("Backup Project");
-        backupProjectOption.addActionListener(new java.awt.event.ActionListener() {
+        backupProjectsOption.setText("Backup Projects");
+        backupProjectsOption.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                backupProjectOptionActionPerformed(evt);
+                backupProjectsOptionActionPerformed(evt);
             }
         });
-        backupMenu.add(backupProjectOption);
+        backupMenu.add(backupProjectsOption);
 
         backupFileOption.setText("Backup File");
         backupFileOption.setEnabled(false);
@@ -391,16 +391,16 @@ public class MainFrame extends javax.swing.JFrame {
         controller.copyFile();
     }//GEN-LAST:event_copyOptionActionPerformed
 
-    private void backupProjectOptionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backupProjectOptionActionPerformed
-        JOptionPane.showMessageDialog(this, evt.getActionCommand(), "Not Implemented", JOptionPane.INFORMATION_MESSAGE);
-    }//GEN-LAST:event_backupProjectOptionActionPerformed
+    private void backupProjectsOptionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backupProjectsOptionActionPerformed
+        controller.backUpProjects();
+    }//GEN-LAST:event_backupProjectsOptionActionPerformed
 
     private void backupFileOptionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backupFileOptionActionPerformed
         controller.backUpFile();
     }//GEN-LAST:event_backupFileOptionActionPerformed
 
     private void exportProjectOptionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exportProjectOptionActionPerformed
-        JOptionPane.showMessageDialog(this, evt.getActionCommand(), "Not Implemented", JOptionPane.INFORMATION_MESSAGE);
+        controller.exportProject();
     }//GEN-LAST:event_exportProjectOptionActionPerformed
 
     private void importProjectOptionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_importProjectOptionActionPerformed
@@ -420,11 +420,11 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_syntaxValidateOptionActionPerformed
 
     private void translationOptionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_translationOptionActionPerformed
-        controller.translateFile();
+        controller.translateProject();
     }//GEN-LAST:event_translationOptionActionPerformed
 
     private void compileOptionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_compileOptionActionPerformed
-        JOptionPane.showMessageDialog(this, evt.getActionCommand(), "Not Implemented", JOptionPane.INFORMATION_MESSAGE);
+        controller.compileProject();
     }//GEN-LAST:event_compileOptionActionPerformed
 
     private void refactorOptionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refactorOptionActionPerformed
@@ -460,7 +460,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JMenuItem aboutOption;
     private javax.swing.JMenuItem backupFileOption;
     private javax.swing.JMenu backupMenu;
-    private javax.swing.JMenuItem backupProjectOption;
+    private javax.swing.JMenuItem backupProjectsOption;
     private javax.swing.JMenu codeMenu;
     private javax.swing.JMenuItem compileOption;
     private javax.swing.JMenuItem configurationOption;

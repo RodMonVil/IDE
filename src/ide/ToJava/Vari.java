@@ -20,19 +20,41 @@ public class Vari {
 //        this.name = name;
 //    }
     public Vari(Element element) {
-        this.type = dictionary.translateToken(element.getAttribute("type"));
-        this.name = element.getAttribute("name");
+        type = dictionary.translateToken(element.getAttribute("type"));
+        name = element.getAttribute("name");
         if (element.hasAttribute("value")) {
-            this.value = dictionary.translateToken(element.getAttribute("value"));
-            if (this.value.isEmpty()) {
-                this.value = element.getAttribute("value");
+            value = dictionary.translateToken(element.getAttribute("value"));
+            if (value.isEmpty()) {
+                value = element.getAttribute("value");
+                if (value.isEmpty()) {
+                    switch (type) {
+                        case "String":
+                            value = "\"\"";
+                            break;
+                        case "char":
+                            value = "''";
+                            break;
+                        case "boolean":
+                            value = "false";
+                            break;
+                        default:
+                            value = "0";
+                            break;
+                    }
+                }
             }
         }
     }
 
     public String toJava() {
         if (value != null) {
-            return "\t" + type + " " + name + " = " + value + ";\n";
+            if (type.equals("String")) {
+                return "\t" + type + " " + name + " = \"" + value + "\";\n";
+            } else if (type.equals("char")) {
+                return "\t" + type + " " + name + " = '" + value + "';\n";
+            } else {
+                return "\t" + type + " " + name + " = " + value + ";\n";
+            }
         }
         return "\t" + type + " " + name + ";\n";
     }

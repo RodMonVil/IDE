@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<klasse name="NewClass">
+<klasse name="PruebaProf">
     <paketsen name="Parcial"/>
     <varis>
-        <vari name="dsad" type="intze" value="">​</vari>
-        <vari name="rere" type="floastag" value="">​</vari>
+        <vari name="var1" type="intze" value="">​</vari>
+        <vari name="var2" type="floastag" value="">​</vari>
     </varis>
-    <metapod name="dsda" return="dopplet">
+    <metapod name="met1" return="dopplet">
         <varis>
-            <vari name="sdsdsa" type="intze" value="">​</vari>
+            <vari name="var3" type="intze" value="">​</vari>
         </varis>
     </metapod>
 </klasse>

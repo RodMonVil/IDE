@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<klasse name="NewClass">
+<klasse name="testXSD1">
     <paketsen name="Parcial"/>
     <importsen>
-        <includsen name="paq1"></includsen>
-        <includsen name="paq2"></includsen>
-        <includsen name="paq3"></includsen>
+        <includsen name="java.util.*"></includsen>
+        <includsen name="java.io.*"></includsen>
     </importsen>
     <varis>
-        <vari name="dsad" type="intze" value="">​</vari>
-        <vari name="rere" type="stringze" value="nein">​</vari>
-        <vari name="rere" type="boolsech" value="trulsch">​</vari>
+        <vari name="var1" type="intze" value="">​</vari>
+        <vari name="var2" type="stringze" value="nein">​</vari>
+        <vari name="var3" type="boolsech" value="trulsch">​</vari>
     </varis>
-    <metapod name="asddsa" return="volsch"/>
-    <metapod name="dsda" return="dopplet">
+    <metapod name="met1" return="volsch"/>
+    <metapod name="met2" return="dopplet">
         <varis>
-            <vari name="sdsdsa" type="intze" value="34">​</vari>
-            <vari name="rere" type="boolsech" value="falsch">​</vari>
+            <vari name="var4" type="intze" value="34">​</vari>
+            <vari name="var5" type="boolsech" value="falsch">​</vari>
         </varis>
+        <printzen value="var5"></printzen>
     </metapod>
 </klasse>

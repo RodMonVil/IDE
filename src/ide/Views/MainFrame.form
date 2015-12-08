@@ -57,12 +57,12 @@
                 <Property name="text" type="java.lang.String" value="Backup"/>
               </Properties>
               <SubComponents>
-                <MenuItem class="javax.swing.JMenuItem" name="backupProjectOption">
+                <MenuItem class="javax.swing.JMenuItem" name="backupProjectsOption">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Backup Project"/>
+                    <Property name="text" type="java.lang.String" value="Backup Projects"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="backupProjectOptionActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="backupProjectsOptionActionPerformed"/>
                   </Events>
                 </MenuItem>
                 <MenuItem class="javax.swing.JMenuItem" name="backupFileOption">

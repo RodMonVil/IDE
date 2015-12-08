@@ -1,18 +1,19 @@
 package Parcial;
 
-import paq1;
-import paq2;
-import paq3;
+import java.util.*;
+import java.io.*;
 
-public class NewClass {
-	int dsad = ;
-	String rere = null;
-	boolean rere = true;
-	public void asddsa() {
+public class testXSD1 {
+	int var1 = 0;
+	String var2 = null;
+	boolean var3 = true;
+	public void met1() {
 	}
-	public double dsda() {
-		int sdsdsa = 34;
-	boolean rere = false;
+	public double met2() {
+		int var4 = 34;
+	boolean var5 = false;
+System.out.println(var5);
+	return 0;
 	}
 
 }
